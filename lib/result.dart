@@ -15,6 +15,7 @@ class Result extends StatelessWidget {
             color: Colors.red,
             fontWeight: FontWeight.bold,
           ),
+          textAlign: TextAlign.center,
         ): Text(
           'Ok now you can have fun time with your husband',
           style: TextStyle(
@@ -22,6 +23,7 @@ class Result extends StatelessWidget {
             color: Colors.green,
             fontWeight: FontWeight.bold,
           ),
+          textAlign: TextAlign.center,
         ),
       ),
     );
