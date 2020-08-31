@@ -13,23 +13,25 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _index = 0;
+  var _totalScore=0;
   var _questions = [
     {
       'questionText':'What\'s your husband favourite color?',
-      'answerText':['Red', 'Blue', 'Yellow', 'Orange'],
+      'answerText':[{'text':'Red','score':5}, {'text':'Blue','score':10}, {'text':'Yellow','score':0}, {'text':'Orange','score':0}],
     },
     {
-      'questionText':'What\'s your husband favourite animal?',
-      'answerText':['Tiger', 'Lion', 'Dog', 'Rat'],
+      'questionText':'What\'s your husband favourite animal he would love to pet?',
+      'answerText':[{'text':'Lion','score':5}, {'text':'Tiger','score':10}, {'text':'Dog','score':0}, {'text':'Elephant','score':0}],
     },
     {
       'questionText':'What\'s your husband birth year?',
-      'answerText':['1994', '1993', '1995', '1992'],
+      'answerText':[{'text':'1994','score':0}, {'text':'1993','score':10}, {'text':'1995','score':0}, {'text':'1992','score':0}],
     },
   ];
-  void _answered(){
+  void _answered( int score){
     setState(() {
       _index = _index + 1;
+      _totalScore = _totalScore + score;
     });
   }
   @override
@@ -46,8 +48,8 @@ class _MyAppState extends State<MyApp> {
         Quiz(
           questions: _questions,
           index: _index,
-          answered: _answered
-        ) : Result,
+          answered: _answered,
+        ) : Result(_totalScore),
       ),
     );
   }
